@@ -19,12 +19,8 @@ form.addEventListener("submit",(e)=>{
   
   const book ={title , author ,   isbn}
   clearAllFields()
-  tableList.innerHTML =`<tr>
-   <td>${title}</td>
-   <td>${author}</td>
-   <td>${isbn}</td>
-  </tr>`
-console.log(book);
+   createRow(title,author,isbn)
+   localStorage.setItem("book",JSON.stringify(title , author ,   isbn))
 })
 
 
@@ -35,3 +31,12 @@ function clearAllFields(){
      document.querySelector("#isbn").value=''
   
 }
+function createRow(title,author,isbn){
+    tableList.innerHTML =`<tr>
+    <td>${title}</td>
+    <td>${author}</td>
+    <td>${isbn}</td>
+    <td><a href="#" class ="btn btn-danger float-right delete">X</td>
+   </tr>`
+}
+arbaz khan
