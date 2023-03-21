@@ -20,7 +20,7 @@ form.addEventListener("submit",(e)=>{
   const book ={title , author ,   isbn}
   clearAllFields()
    createRow(title,author,isbn)
-   localStorage.setItem("book",JSON.stringify(title , author ,   isbn))
+   addRow(book)
 })
 
 
@@ -39,4 +39,14 @@ function createRow(title,author,isbn){
     <td><a href="#" class ="btn btn-danger float-right delete">X</td>
    </tr>`
 }
-arbaz khan
+function addRow(book){
+    let newbook;
+
+    if(localStorage.getItem("book")=== null){
+        newbook =[]
+    }  else{
+        newbook = JSON.parse(localStorage.getItem("book"))
+    }
+     newbook.push(book)
+        localStorage.setItem("books",JSON.stringify(book))
+}
